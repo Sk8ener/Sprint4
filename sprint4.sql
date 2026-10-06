@@ -140,12 +140,13 @@ ON individual_product_id  = p.product_id ;
 -- Ejercicio 2 
 SELECT
   product_name,
-  COUNT(*) AS unidades_vendidas,
+  COUNT(product_id) AS unidades_vendidas,
   COUNT(DISTINCT transaction_id) AS numero_transacciones
 FROM `sprint3-analytics-reneb.sprint3_gold.dim_transactions_flat`
-GROUP BY 1
+GROUP BY product_id, product_name
 ORDER BY unidades_vendidas DESC
 LIMIT 5;
+
 
 -- Ejercicio 3
 -- creacion de función
@@ -173,5 +174,5 @@ FROM `sprint3-analytics-reneb.sprint3_gold.dim_transactions_flat`;
 
 
 
--- Creación de tabla optimizada
+
 
